@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@import '@fontsource/jetbrains-mono';
+
+:root {
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --font-mono-light: 300;
+  --font-mono-regular: 400;
+  --font-mono-medium: 500;
+  --font-mono-bold: 700;
+}
+
+
+body {
+  background-color: #080813;
+}

@@ -1,0 +1,14 @@
+<div
+  class="inline-flex items-center pl-6 rounded-3xl text-center
+         transition-all duration-300 ease-out
+         hover:scale-105 hover:shadow-md
+         text-[14px]"
+  [ngClass]="colorClasses[color]"
+>
+  <span>{{ role }}</span>
+
+  <fa-icon
+    [icon]="['fas', icon]"
+    class="ml-5 text-[18px] border px-2 py-1 rounded-3xl"
+  ></fa-icon>
+</div>

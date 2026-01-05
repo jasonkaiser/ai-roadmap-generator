@@ -1,0 +1,9 @@
+.custom-dotted-underline {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2px; /* optional, thicker dots */
+    text-underline-offset: 5px;     /* optional, spacing from text */
+    /* For bigger gaps, increase letter-spacing: */
+    letter-spacing: 4px;
+  }
+  
