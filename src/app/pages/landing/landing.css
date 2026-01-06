@@ -1,9 +1,27 @@
 .custom-dotted-underline {
     text-decoration: underline;
     text-decoration-style: dotted;
-    text-decoration-thickness: 2px; /* optional, thicker dots */
-    text-underline-offset: 5px;     /* optional, spacing from text */
-    /* For bigger gaps, increase letter-spacing: */
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 5px;    
     letter-spacing: 4px;
   }
   
+
+  @keyframes fade-slide-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-slide-in {
+    animation: fade-slide-in 1s ease-out forwards;
+  }
+
+  .step-transition {
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }

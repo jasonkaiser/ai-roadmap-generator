@@ -4,8 +4,9 @@
          hover:scale-105 hover:shadow-md
          text-[14px]"
   [ngClass]="colorClasses[color]"
+  (click)="onRoleClick()"
 >
-  <span>{{ role }}</span>
+  <span class="font-mono">{{ role }}</span>
 
   <fa-icon
     [icon]="['fas', icon]"

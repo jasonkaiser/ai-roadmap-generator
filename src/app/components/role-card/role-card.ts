@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -15,6 +15,8 @@ export class RoleCard {
     @Input() color: string = 'orange';
     @Input() icon: string = '';
 
+    @Output() roleSelected = new EventEmitter<string>();
+
 
     colorClasses: Record<string, string> = {
 
@@ -28,6 +30,12 @@ export class RoleCard {
 
     getColorClass(color: string): string{
       return this.colorClasses[color] || this.colorClasses['orange'];
+    }
+
+    onRoleClick(): void {
+
+        this.roleSelected.emit(this.role);
+
     }
 
 }
