@@ -5,6 +5,10 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { ROLES } from './../../data/roles';
 import { RoleCard } from './../../components/role-card/role-card';
 
+
+// Task: Organize steps in each page not one 
+
+
 @Component({
   selector: 'app-landing',
   imports: [RoleCard, CommonModule, FontAwesomeModule],
