@@ -1,43 +1,45 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
-import { ROLES } from './../../data/roles';
-import { RoleCard } from './../../components/role-card/role-card';
-
-
-// Task: Organize steps in each page not one 
-
+import { Step1RoleSelectionComponent } from './../../components/step-one/step-one';
+import { Step2UserDetailsComponent } from './../../components/step-two/step-two';
 
 @Component({
   selector: 'app-landing',
-  imports: [RoleCard, CommonModule, FontAwesomeModule],
+  standalone: true,
+  imports: [CommonModule, Step1RoleSelectionComponent, Step2UserDetailsComponent],
   templateUrl: './landing.html',
   styleUrl: './landing.css',
 })
 export class Landing {
-    arrowRight = faArrowRightLong;
-    roles = ROLES;
-    currentStep: number = 1;
-    role: string = '';
-    isTransitioning: boolean = false;
+  currentStep: number = 1;
+  role: string = '';
+  userDetails: string = '';
 
-    constructor(private cdr: ChangeDetectorRef) {} 
+  constructor(private cdr: ChangeDetectorRef) {} 
 
-    selectRole(role: string): void {
-      this.role = role;
-      this.isTransitioning = true; 
-
-      setTimeout(() => {
-        this.currentStep++;
-        this.cdr.detectChanges();  
-        
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth'});
-        }, 100);
-      }, 500);
+  onRoleSelected(role: string): void {
+    this.role = role;
+    
+    setTimeout(() => {
+      this.currentStep = 2;
+      this.cdr.detectChanges();
       
-      console.log('selectRole called with:', role);
-      console.log('currentStep BEFORE:', this.currentStep);
-    }
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth'});
+      }, 100);
+    }, 300);
+  }
+
+  onSkipClicked(): void {
+    console.log('User skipped step 2');
+    this.currentStep = 3; 
+  }
+
+  onContinueClicked(details: string): void {
+    this.userDetails = details;
+    console.log('User details:', details);
+    console.log('Role:', this.role);
+
+    this.currentStep = 3; 
+  }
 }

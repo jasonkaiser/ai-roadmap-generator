@@ -1,0 +1,53 @@
+<div class="min-h-screen flex items-center justify-center animate-fade-slide-in">
+    <div class="w-full flex flex-col items-center px-4">
+      
+      <div class="text-[#494969] font-mono font-light mb-2 flex gap-7 w-full max-w-3xl">
+        <fa-icon [icon]="arrowRight" class="text-[#6d6d97]"></fa-icon>
+        <p>
+          <span class="text-[#6d6d97]">Step 2:</span> 
+          Add more details about you! You are so 
+          <span class="text-orange-500 custom-dotted-underline">close</span>
+        </p>
+      </div>
+      
+      <hr class="h-px w-full max-w-3xl border-0 bg-gradient-to-r from-[#494969] to-transparent mb-10">
+      
+      <div class="w-full max-w-3xl bg-[#1a1a2e]/50 backdrop-blur-sm border border-[#494969]/30 rounded-2xl p-8 shadow-2xl">
+        
+        <h2 class="text-white font-mono text-2xl mb-2">
+          Tell us about yourself, <span class="text-orange-500">{{ role }}</span> Developer 
+        </h2>
+        
+        <p class="text-[#6d6d97] font-mono text-sm mb-6">
+          Share your experience, goals, and what you're looking to learn next.
+        </p>
+        
+        <textarea 
+          [(ngModel)]="userDetails"
+          class="w-full h-48 bg-[#0f0f1e] text-white font-mono text-sm p-4 rounded-xl 
+                 border border-[#494969]/50 focus:border-orange-500 focus:outline-none 
+                 transition-all duration-300 resize-none placeholder-[#494969]"
+          placeholder="I'm a {{ role }} developer with experience in...">
+        </textarea>
+        
+        <div class="flex justify-end gap-4 mt-6">
+          <button 
+            (click)="skip()"
+            class="px-6 py-2 font-mono text-sm text-[#6d6d97] border border-[#494969]/50 
+                   rounded-full hover:border-[#6d6d97] hover:text-white 
+                   transition-all duration-300">
+            Skip for now
+          </button>
+          
+          <button 
+            (click)="continue()"
+            class="px-8 py-2 font-mono text-sm bg-orange-500 text-white rounded-full 
+                   hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/20 
+                   transition-all duration-300 transform hover:scale-105">
+            Continue →
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
